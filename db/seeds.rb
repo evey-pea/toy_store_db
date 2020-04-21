@@ -5,7 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-total_users = 5
+total_users = 14
+total_toys = 80
+
+def random_character
+    return[Faker::DcComics.hero, 
+        Faker::DcComics.heroine, 
+        Faker::DcComics.villain, 
+        Faker::DcComics.name].sample
+end
 
 for i in 1..total_users
     User.create(
@@ -13,11 +21,12 @@ for i in 1..total_users
         password: Faker::Alphanumeric.alphanumeric(number: 10, min_alpha: 3, min_numeric: 3)
     )
 end
-for i in 1..20
+
+for i in 1..total_toys
     Toy.create(
-        name: "Toy#{i}",
-        description: "Toy#{i} is super safe",
+        name: random_character(),
+        description: Faker::DcComics.title,
         date_posted: Time.now,
-        user_id: Faker::Number.between(from: 1, to: 5) 
+        user_id: Faker::Number.between(from: 1, to: total_users) 
     )
 end
