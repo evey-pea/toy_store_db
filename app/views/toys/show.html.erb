@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @toy.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @toy.description %>
+</p>
+
+<p>
+  <strong>Date posted:</strong>
+  <%= @toy.date_posted %>
+</p>
+
+<p>
+  <strong>Posted by:</strong>
+  <%= @toy.posted_by %>
+</p>
+
+<%= link_to 'Edit', edit_toy_path(@toy) %> |
+<%= link_to 'Back', toys_path %>

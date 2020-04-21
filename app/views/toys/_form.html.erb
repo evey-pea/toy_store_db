@@ -1,0 +1,37 @@
+<%= form_with(model: toy, local: true) do |form| %>
+  <% if toy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(toy.errors.count, "error") %> prohibited this toy from being saved:</h2>
+
+      <ul>
+      <% toy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_posted %>
+    <%= form.date_select :date_posted %>
+  </div>
+
+  <div class="field">
+    <%= form.label :posted_by %>
+    <%= form.text_field :posted_by %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
