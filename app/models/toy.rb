@@ -1,2 +1,3 @@
 class Toy < ApplicationRecord
-end
+    belongs_to :user, dependent: :destroy
+    end
