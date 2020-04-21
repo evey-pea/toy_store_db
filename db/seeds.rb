@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-total_users = 14
-total_manufacturers = 4
+total_users = 7
+total_manufacturers = 6
 total_toys = 80
 
 def random_character
