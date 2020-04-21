@@ -8783,3 +8783,1774 @@ FOREIGN KEY ("user_id")
   ↳ db/seeds.rb:26
   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:26
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2062125228108844815)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateManufacturers (20200421055125)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "manufacturers" ("id" bigserial primary key, "name" character varying, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200421055125_create_manufacturers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200421055125"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddManufacturerIdToToys (20200421055237)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "toys" ADD "manufacturer_id" bigint[0m
+  ↳ db/migrate/20200421055237_add_manufacturer_id_to_toys.rb:3
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_toys_on_manufacturer_id" ON "toys"  ("manufacturer_id")[0m
+  ↳ db/migrate/20200421055237_add_manufacturer_id_to_toys.rb:3
+  [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "toys" ADD CONSTRAINT "fk_rails_a6906e43e9"
+FOREIGN KEY ("manufacturer_id")
+  REFERENCES "manufacturers" ("id")
+[0m
+  ↳ db/migrate/20200421055237_add_manufacturer_id_to_toys.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200421055237"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2062125228108844815)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2062125228108844815)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2062125228108844815)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mManufacturer Load (0.2ms)[0m  [1m[34mSELECT  "manufacturers".* FROM "manufacturers" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.5ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "DC Toys"], ["location", "USA"], ["created_at", "2020-04-21 05:58:53.246060"], ["updated_at", "2020-04-21 05:58:53.246060"]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mToy Load (1.7ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mToy Load (1.2ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  [1m[36mToy Load (1.1ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  [1m[36mToy Load (1.1ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  [1m[36mToy Load (0.9ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mToy Load (1.0ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mToy Load (0.9ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mToy Load (0.7ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mToy Load (0.6ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mToy Load (0.5ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mToy Load (0.9ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mToy Load (0.5ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mToy Load (0.5ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mToy Load (0.6ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mToy Load (0.5ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mToy Load (0.5ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mToy Load (0.6ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mToy Load (0.6ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mToy Load (0.6ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mToy Load (0.6ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 47], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 68], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 71], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 75], ["LIMIT", 1]]
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 77], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 78], ["LIMIT", 1]]
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 80], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2062125228108844815)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2062125228108844815)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Ambrose@toy_store.com"], ["password", "i2d8rlbul6"], ["created_at", "2020-04-21 06:14:36.390206"], ["updated_at", "2020-04-21 06:14:36.390206"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Titus@toy_store.com"], ["password", "g1y4x2hj8n"], ["created_at", "2020-04-21 06:14:36.393914"], ["updated_at", "2020-04-21 06:14:36.393914"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Riva@toy_store.com"], ["password", "63u1ig8t7y"], ["created_at", "2020-04-21 06:14:36.396596"], ["updated_at", "2020-04-21 06:14:36.396596"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Rashad@toy_store.com"], ["password", "8ka3nlf44c"], ["created_at", "2020-04-21 06:14:36.399623"], ["updated_at", "2020-04-21 06:14:36.399623"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Daina@toy_store.com"], ["password", "cuusja08x1"], ["created_at", "2020-04-21 06:14:36.403043"], ["updated_at", "2020-04-21 06:14:36.403043"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Enrique@toy_store.com"], ["password", "kdjcax7962"], ["created_at", "2020-04-21 06:14:36.407282"], ["updated_at", "2020-04-21 06:14:36.407282"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Val@toy_store.com"], ["password", "jt0e9m4v9d"], ["created_at", "2020-04-21 06:14:36.411426"], ["updated_at", "2020-04-21 06:14:36.411426"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Love@toy_store.com"], ["password", "3e0cv1eac9"], ["created_at", "2020-04-21 06:14:36.415242"], ["updated_at", "2020-04-21 06:14:36.415242"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Talia@toy_store.com"], ["password", "xy8e3d1zgl"], ["created_at", "2020-04-21 06:14:36.418395"], ["updated_at", "2020-04-21 06:14:36.418395"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Buddy@toy_store.com"], ["password", "2wgq9h0qsg"], ["created_at", "2020-04-21 06:14:36.421401"], ["updated_at", "2020-04-21 06:14:36.421401"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Kylie@toy_store.com"], ["password", "p6zpc0w6vj"], ["created_at", "2020-04-21 06:14:36.424180"], ["updated_at", "2020-04-21 06:14:36.424180"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Stacey@toy_store.com"], ["password", "n2sb34m9ci"], ["created_at", "2020-04-21 06:14:36.427075"], ["updated_at", "2020-04-21 06:14:36.427075"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Albert@toy_store.com"], ["password", "7l0saqv1tr"], ["created_at", "2020-04-21 06:14:36.429827"], ["updated_at", "2020-04-21 06:14:36.429827"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Tory@toy_store.com"], ["password", "jszzj2l617"], ["created_at", "2020-04-21 06:14:36.433818"], ["updated_at", "2020-04-21 06:14:36.433818"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mManufacturer Create (0.4ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fametek LLC"], ["location", "Nicaragua"], ["created_at", "2020-04-21 06:14:36.445248"], ["updated_at", "2020-04-21 06:14:36.445248"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mManufacturer Create (0.2ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fametek LLC"], ["location", "Monaco"], ["created_at", "2020-04-21 06:14:36.447866"], ["updated_at", "2020-04-21 06:14:36.447866"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mManufacturer Create (0.4ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ACME Toy CO."], ["location", "Virgin Islands, U.S."], ["created_at", "2020-04-21 06:14:36.450509"], ["updated_at", "2020-04-21 06:14:36.450509"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mManufacturer Create (0.2ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "DC Toys"], ["location", "Monaco"], ["created_at", "2020-04-21 06:14:36.453134"], ["updated_at", "2020-04-21 06:14:36.453134"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.9ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mera"], ["description", "The Killing Joke"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.470907"], ["updated_at", "2020-04-21 06:14:36.470907"], ["user_id", 5], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Terry McGinnis"], ["description", "Action Comics"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.475549"], ["updated_at", "2020-04-21 06:14:36.475549"], ["user_id", 4], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.7ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Doctor Fate"], ["description", "JLA: Earth 2"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.479679"], ["updated_at", "2020-04-21 06:14:36.479679"], ["user_id", 12], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.6ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Amanda Waller"], ["description", "JLA: Earth 2"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.485124"], ["updated_at", "2020-04-21 06:14:36.485124"], ["user_id", 6], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Black Lightning"], ["description", "All Star Superman"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.502015"], ["updated_at", "2020-04-21 06:14:36.502015"], ["user_id", 7], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Connor Hawke"], ["description", "Gotham Central"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.506077"], ["updated_at", "2020-04-21 06:14:36.506077"], ["user_id", 14], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mr. Terrific"], ["description", "Superman: Red Son"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.509490"], ["updated_at", "2020-04-21 06:14:36.509490"], ["user_id", 10], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Martain Manhunter"], ["description", "Arkham Asylum: A Serious House On Serious Earth"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.512889"], ["updated_at", "2020-04-21 06:14:36.512889"], ["user_id", 12], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Midnighter"], ["description", "The Sinestro Corps War"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.516151"], ["updated_at", "2020-04-21 06:14:36.516151"], ["user_id", 2], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Connor Hawke"], ["description", "JLA: Tower Of Babel"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.519406"], ["updated_at", "2020-04-21 06:14:36.519406"], ["user_id", 13], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Raven"], ["description", "Green Arrow: The Longbow Hunters"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.522748"], ["updated_at", "2020-04-21 06:14:36.522748"], ["user_id", 5], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Michael Jon Carter"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.526095"], ["updated_at", "2020-04-21 06:14:36.526095"], ["user_id", 12], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Vixen"], ["description", "Multiversity"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.529370"], ["updated_at", "2020-04-21 06:14:36.529370"], ["user_id", 5], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Plastic Man"], ["description", "Whatever Happened To The Man Of Tomorrow?"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.532998"], ["updated_at", "2020-04-21 06:14:36.532998"], ["user_id", 6], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Red Arrow"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.536465"], ["updated_at", "2020-04-21 06:14:36.536465"], ["user_id", 13], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Ras al Ghul"], ["description", "Gotham Central"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.540370"], ["updated_at", "2020-04-21 06:14:36.540370"], ["user_id", 3], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Poison Ivy"], ["description", "Batman: Year One"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.544246"], ["updated_at", "2020-04-21 06:14:36.544246"], ["user_id", 13], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Orion"], ["description", "Doom Patrol"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.548075"], ["updated_at", "2020-04-21 06:14:36.548075"], ["user_id", 9], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "John Constantine"], ["description", "All Star Superman"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.552241"], ["updated_at", "2020-04-21 06:14:36.552241"], ["user_id", 11], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Batgirl"], ["description", "Grant Morrison's Animal Man"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.556137"], ["updated_at", "2020-04-21 06:14:36.556137"], ["user_id", 10], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "General Zod"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.560066"], ["updated_at", "2020-04-21 06:14:36.560066"], ["user_id", 9], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Wonder Girl"], ["description", "The Killing Joke"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.563389"], ["updated_at", "2020-04-21 06:14:36.563389"], ["user_id", 2], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Paralax"], ["description", "JLA: Earth 2"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.566912"], ["updated_at", "2020-04-21 06:14:36.566912"], ["user_id", 6], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Captain Marvel"], ["description", "Arkham Asylum: A Serious House On Serious Earth"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.570266"], ["updated_at", "2020-04-21 06:14:36.570266"], ["user_id", 5], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Beast Boy"], ["description", "Multiversity"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.573418"], ["updated_at", "2020-04-21 06:14:36.573418"], ["user_id", 3], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Sinestro"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.576573"], ["updated_at", "2020-04-21 06:14:36.576573"], ["user_id", 12], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Green Arrow"], ["description", "Batman: Year One"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.580206"], ["updated_at", "2020-04-21 06:14:36.580206"], ["user_id", 3], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Al Pratt"], ["description", "Swamp Thing: The Anatomy Lesson"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.583752"], ["updated_at", "2020-04-21 06:14:36.583752"], ["user_id", 10], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Clark Kent"], ["description", "Arkham Asylum: A Serious House On Serious Earth"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.586960"], ["updated_at", "2020-04-21 06:14:36.586960"], ["user_id", 1], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Starfire"], ["description", "Jack Kirby's New Gods"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.590685"], ["updated_at", "2020-04-21 06:14:36.590685"], ["user_id", 6], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Killer Croc"], ["description", "Batman: The Long Halloween"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.593872"], ["updated_at", "2020-04-21 06:14:36.593872"], ["user_id", 14], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Heat Wave"], ["description", "Arkham Asylum: A Serious House On Serious Earth"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.597460"], ["updated_at", "2020-04-21 06:14:36.597460"], ["user_id", 13], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Gentleman Ghost"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.600875"], ["updated_at", "2020-04-21 06:14:36.600875"], ["user_id", 7], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Toy Man"], ["description", "Arkham Asylum: A Serious House On Serious Earth"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.604496"], ["updated_at", "2020-04-21 06:14:36.604496"], ["user_id", 6], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Guardian"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.608070"], ["updated_at", "2020-04-21 06:14:36.608070"], ["user_id", 7], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lex Luthor"], ["description", "Superman: Red Son"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.611542"], ["updated_at", "2020-04-21 06:14:36.611542"], ["user_id", 4], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Hugo Strange"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.614944"], ["updated_at", "2020-04-21 06:14:36.614944"], ["user_id", 2], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Red Arrow"], ["description", "Swamp Thing: The Anatomy Lesson"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.618232"], ["updated_at", "2020-04-21 06:14:36.618232"], ["user_id", 4], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Doomsday"], ["description", "The Killing Joke"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.621965"], ["updated_at", "2020-04-21 06:14:36.621965"], ["user_id", 9], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Damian Wayne"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.625486"], ["updated_at", "2020-04-21 06:14:36.625486"], ["user_id", 1], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Batgirl"], ["description", "All Star Superman"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.629328"], ["updated_at", "2020-04-21 06:14:36.629328"], ["user_id", 9], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Black Canary"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.633215"], ["updated_at", "2020-04-21 06:14:36.633215"], ["user_id", 10], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Midnighter"], ["description", "Snowbirds Don't Fly"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.637095"], ["updated_at", "2020-04-21 06:14:36.637095"], ["user_id", 1], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "The Flash"], ["description", "Batman: The Long Halloween"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.640861"], ["updated_at", "2020-04-21 06:14:36.640861"], ["user_id", 14], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mongul"], ["description", "The Killing Joke"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.644689"], ["updated_at", "2020-04-21 06:14:36.644689"], ["user_id", 8], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Silk Spectre"], ["description", "Doom Patrol"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.648601"], ["updated_at", "2020-04-21 06:14:36.648601"], ["user_id", 6], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Ragman"], ["description", "The Coyote Gospel"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.652455"], ["updated_at", "2020-04-21 06:14:36.652455"], ["user_id", 5], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Robin"], ["description", "The Coyote Gospel"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.656268"], ["updated_at", "2020-04-21 06:14:36.656268"], ["user_id", 9], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Martain Manhunter"], ["description", "All Star Superman"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.660256"], ["updated_at", "2020-04-21 06:14:36.660256"], ["user_id", 8], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Kilowog"], ["description", "JLA: Tower Of Babel"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.663911"], ["updated_at", "2020-04-21 06:14:36.663911"], ["user_id", 2], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Paralax"], ["description", "Identity Crisis"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.667239"], ["updated_at", "2020-04-21 06:14:36.667239"], ["user_id", 3], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Nite Owl"], ["description", "Multiversity"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.670565"], ["updated_at", "2020-04-21 06:14:36.670565"], ["user_id", 11], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Barbara Gordon"], ["description", "Crisis On Infinite Earths"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.673730"], ["updated_at", "2020-04-21 06:14:36.673730"], ["user_id", 5], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Darkseid"], ["description", "Grant Morrison's Animal Man"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.677212"], ["updated_at", "2020-04-21 06:14:36.677212"], ["user_id", 4], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Paralax"], ["description", "Batman: Year One"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.681580"], ["updated_at", "2020-04-21 06:14:36.681580"], ["user_id", 13], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Wonder Girl"], ["description", "Detective Comics"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.685013"], ["updated_at", "2020-04-21 06:14:36.685013"], ["user_id", 7], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Heat Wave"], ["description", "For The Man Who Has Everything"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.688776"], ["updated_at", "2020-04-21 06:14:36.688776"], ["user_id", 13], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Starfire"], ["description", "Kingdom Come"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.692271"], ["updated_at", "2020-04-21 06:14:36.692271"], ["user_id", 6], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "John Stewart"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.695969"], ["updated_at", "2020-04-21 06:14:36.695969"], ["user_id", 5], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dick Grayson"], ["description", "The Dark Knight Returns"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.699444"], ["updated_at", "2020-04-21 06:14:36.699444"], ["user_id", 10], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Bruce Wayne"], ["description", "Batman: Year One"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.702894"], ["updated_at", "2020-04-21 06:14:36.702894"], ["user_id", 3], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Raven"], ["description", "Teen Titans: The Judas Contract"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.706406"], ["updated_at", "2020-04-21 06:14:36.706406"], ["user_id", 3], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Silk Spectre"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.709753"], ["updated_at", "2020-04-21 06:14:36.709753"], ["user_id", 9], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Talia al Ghul"], ["description", "The Coyote Gospel"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.713296"], ["updated_at", "2020-04-21 06:14:36.713296"], ["user_id", 9], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Hawkgirl"], ["description", "Arkham Asylum: A Serious House On Serious Earth"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.716669"], ["updated_at", "2020-04-21 06:14:36.716669"], ["user_id", 6], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Harvey Bullock"], ["description", "The Dark Knight Returns"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.723665"], ["updated_at", "2020-04-21 06:14:36.723665"], ["user_id", 4], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Killer Croc"], ["description", "Grant Morrison's Animal Man"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.727399"], ["updated_at", "2020-04-21 06:14:36.727399"], ["user_id", 3], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Gentleman Ghost"], ["description", "Kingdom Come"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.730700"], ["updated_at", "2020-04-21 06:14:36.730700"], ["user_id", 1], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Barbara Gordon"], ["description", "All Star Superman"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.733813"], ["updated_at", "2020-04-21 06:14:36.733813"], ["user_id", 9], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mary Marvel"], ["description", "Swamp Thing: The Anatomy Lesson"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.736851"], ["updated_at", "2020-04-21 06:14:36.736851"], ["user_id", 13], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Gentleman Ghost"], ["description", "Jack Kirby's New Gods"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.740087"], ["updated_at", "2020-04-21 06:14:36.740087"], ["user_id", 2], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Tempest"], ["description", "Identity Crisis"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.743302"], ["updated_at", "2020-04-21 06:14:36.743302"], ["user_id", 11], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Kyle Rayner"], ["description", "Kingdom Come"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.746412"], ["updated_at", "2020-04-21 06:14:36.746412"], ["user_id", 10], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mr. Mxyzptlk"], ["description", "Green Arrow: The Longbow Hunters"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.749666"], ["updated_at", "2020-04-21 06:14:36.749666"], ["user_id", 12], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Weather Wizard"], ["description", "Superman: Red Son"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.752814"], ["updated_at", "2020-04-21 06:14:36.752814"], ["user_id", 11], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Billy Batson"], ["description", "Superman: Red Son"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.755822"], ["updated_at", "2020-04-21 06:14:36.755822"], ["user_id", 11], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Gentleman Ghost"], ["description", "Whatever Happened To The Man Of Tomorrow?"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.759416"], ["updated_at", "2020-04-21 06:14:36.759416"], ["user_id", 9], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "James Gordon"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.762690"], ["updated_at", "2020-04-21 06:14:36.762690"], ["user_id", 8], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Al Pratt"], ["description", "Identity Crisis"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.765730"], ["updated_at", "2020-04-21 06:14:36.765730"], ["user_id", 12], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dianna Prince"], ["description", "Snowbirds Don't Fly"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:14:36.768735"], ["updated_at", "2020-04-21 06:14:36.768735"], ["user_id", 5], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "toy_store_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "toy_store_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (3.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "manufacturers" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "manufacturers" ("id" bigserial primary key, "name" character varying, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "toys" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "toys" ("id" bigserial primary key, "name" character varying, "description" text, "date_posted" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" bigint, "manufacturer_id" bigint)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE  INDEX  "index_toys_on_manufacturer_id" ON "toys"  ("manufacturer_id")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_toys_on_user_id" ON "toys"  ("user_id")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:37
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:37
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "toys" ADD CONSTRAINT "fk_rails_a6906e43e9"
+FOREIGN KEY ("manufacturer_id")
+  REFERENCES "manufacturers" ("id")
+[0m
+  ↳ db/schema.rb:44
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "toys" ADD CONSTRAINT "fk_rails_62a466a94a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:45
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "manufacturers" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "manufacturers" ("id" bigserial primary key, "name" character varying, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (3.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "toys" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "toys" ("id" bigserial primary key, "name" character varying, "description" text, "date_posted" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" bigint, "manufacturer_id" bigint)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE  INDEX  "index_toys_on_manufacturer_id" ON "toys"  ("manufacturer_id")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_toys_on_user_id" ON "toys"  ("user_id")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:37
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:37
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "toys" ADD CONSTRAINT "fk_rails_a6906e43e9"
+FOREIGN KEY ("manufacturer_id")
+  REFERENCES "manufacturers" ("id")
+[0m
+  ↳ db/schema.rb:44
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "toys" ADD CONSTRAINT "fk_rails_62a466a94a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:45
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200421055237)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200421055125);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2020-04-21 06:15:49.075795"], ["key", "environment"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-04-21 06:15:49.081782"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Luciano@toy_store.com"], ["password", "a55aja0tfv"], ["created_at", "2020-04-21 06:15:49.219552"], ["updated_at", "2020-04-21 06:15:49.219552"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Darcey@toy_store.com"], ["password", "kw2n3p3yd7"], ["created_at", "2020-04-21 06:15:49.227538"], ["updated_at", "2020-04-21 06:15:49.227538"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Tracey@toy_store.com"], ["password", "2ax63no4jv"], ["created_at", "2020-04-21 06:15:49.229938"], ["updated_at", "2020-04-21 06:15:49.229938"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Eric@toy_store.com"], ["password", "tyg1y0n1b3"], ["created_at", "2020-04-21 06:15:49.232823"], ["updated_at", "2020-04-21 06:15:49.232823"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Selina@toy_store.com"], ["password", "8c6t29v3c0"], ["created_at", "2020-04-21 06:15:49.235110"], ["updated_at", "2020-04-21 06:15:49.235110"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Benjamin@toy_store.com"], ["password", "iq5c9srz8s"], ["created_at", "2020-04-21 06:15:49.237551"], ["updated_at", "2020-04-21 06:15:49.237551"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Latonia@toy_store.com"], ["password", "2f8747neuf"], ["created_at", "2020-04-21 06:15:49.239848"], ["updated_at", "2020-04-21 06:15:49.239848"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Devon@toy_store.com"], ["password", "h1k8xgf52u"], ["created_at", "2020-04-21 06:15:49.242286"], ["updated_at", "2020-04-21 06:15:49.242286"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Stan@toy_store.com"], ["password", "r03haydc1f"], ["created_at", "2020-04-21 06:15:49.244837"], ["updated_at", "2020-04-21 06:15:49.244837"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Rene@toy_store.com"], ["password", "2jnk3u3u11"], ["created_at", "2020-04-21 06:15:49.246999"], ["updated_at", "2020-04-21 06:15:49.246999"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Sydney@toy_store.com"], ["password", "o88vdsazt8"], ["created_at", "2020-04-21 06:15:49.249216"], ["updated_at", "2020-04-21 06:15:49.249216"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Joel@toy_store.com"], ["password", "u3zccg9n3k"], ["created_at", "2020-04-21 06:15:49.251770"], ["updated_at", "2020-04-21 06:15:49.251770"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Christa@toy_store.com"], ["password", "13m513p7dp"], ["created_at", "2020-04-21 06:15:49.254447"], ["updated_at", "2020-04-21 06:15:49.254447"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Maxwell@toy_store.com"], ["password", "8tcpq79wc2"], ["created_at", "2020-04-21 06:15:49.257045"], ["updated_at", "2020-04-21 06:15:49.257045"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mManufacturer Create (0.4ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fametek LLC"], ["location", "Solomon Islands"], ["created_at", "2020-04-21 06:15:49.268270"], ["updated_at", "2020-04-21 06:15:49.268270"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mManufacturer Create (0.3ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ACME Toy CO."], ["location", "Ghana"], ["created_at", "2020-04-21 06:15:49.271369"], ["updated_at", "2020-04-21 06:15:49.271369"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mManufacturer Create (0.3ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fametek LLC"], ["location", "Sweden"], ["created_at", "2020-04-21 06:15:49.273996"], ["updated_at", "2020-04-21 06:15:49.273996"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mManufacturer Create (0.3ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "DC Toys"], ["location", "Armenia"], ["created_at", "2020-04-21 06:15:49.276572"], ["updated_at", "2020-04-21 06:15:49.276572"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.7ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Jason Todd"], ["description", "Jack Kirby's New Gods"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.292262"], ["updated_at", "2020-04-21 06:15:49.292262"], ["user_id", 3], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Speedy"], ["description", "JLA: Earth 2"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.296957"], ["updated_at", "2020-04-21 06:15:49.296957"], ["user_id", 1], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Batgirl"], ["description", "For The Man Who Has Everything"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.302383"], ["updated_at", "2020-04-21 06:15:49.302383"], ["user_id", 6], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.8ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Ray Palmer"], ["description", "Whatever Happened To The Man Of Tomorrow?"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.307049"], ["updated_at", "2020-04-21 06:15:49.307049"], ["user_id", 8], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (1.2ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Starfire"], ["description", "The Sinestro Corps War"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.312229"], ["updated_at", "2020-04-21 06:15:49.312229"], ["user_id", 9], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Nite Owl"], ["description", "Swamp Thing: The Anatomy Lesson"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.323264"], ["updated_at", "2020-04-21 06:15:49.323264"], ["user_id", 12], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Black Manta"], ["description", "For The Man Who Has Everything"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.326798"], ["updated_at", "2020-04-21 06:15:49.326798"], ["user_id", 3], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Bizarro"], ["description", "Snowbirds Don't Fly"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.330838"], ["updated_at", "2020-04-21 06:15:49.330838"], ["user_id", 10], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "John Constantine"], ["description", "Superman: Red Son"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.334615"], ["updated_at", "2020-04-21 06:15:49.334615"], ["user_id", 4], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Wonder Woman"], ["description", "The Sinestro Corps War"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.337950"], ["updated_at", "2020-04-21 06:15:49.337950"], ["user_id", 11], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Batman"], ["description", "The Killing Joke"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.341736"], ["updated_at", "2020-04-21 06:15:49.341736"], ["user_id", 7], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.2ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Captain Comet"], ["description", "Green Arrow: The Longbow Hunters"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.344815"], ["updated_at", "2020-04-21 06:15:49.344815"], ["user_id", 9], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Harley Quinn"], ["description", "Jack Kirby's New Gods"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.347860"], ["updated_at", "2020-04-21 06:15:49.347860"], ["user_id", 14], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mirror Master"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.350955"], ["updated_at", "2020-04-21 06:15:49.350955"], ["user_id", 9], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Doctor Mid-Nite"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.354320"], ["updated_at", "2020-04-21 06:15:49.354320"], ["user_id", 12], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Batgirl"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.357258"], ["updated_at", "2020-04-21 06:15:49.357258"], ["user_id", 4], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Captain Atom"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.360399"], ["updated_at", "2020-04-21 06:15:49.360399"], ["user_id", 9], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dr. Fate"], ["description", "Crisis On Infinite Earths"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.363854"], ["updated_at", "2020-04-21 06:15:49.363854"], ["user_id", 8], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Arsenal"], ["description", "Grant Morrison's Animal Man"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.366695"], ["updated_at", "2020-04-21 06:15:49.366695"], ["user_id", 4], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mera"], ["description", "Crisis On Infinite Earths"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.369608"], ["updated_at", "2020-04-21 06:15:49.369608"], ["user_id", 3], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Amanda Waller"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.372881"], ["updated_at", "2020-04-21 06:15:49.372881"], ["user_id", 7], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Captain Cold"], ["description", "JLA: Earth 2"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.375860"], ["updated_at", "2020-04-21 06:15:49.375860"], ["user_id", 10], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Red Arrow"], ["description", "The Killing Joke"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.378961"], ["updated_at", "2020-04-21 06:15:49.378961"], ["user_id", 7], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Black Canary"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.382274"], ["updated_at", "2020-04-21 06:15:49.382274"], ["user_id", 1], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lois Lane"], ["description", "For The Man Who Has Everything"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.385424"], ["updated_at", "2020-04-21 06:15:49.385424"], ["user_id", 10], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Terry McGinnis"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.388511"], ["updated_at", "2020-04-21 06:15:49.388511"], ["user_id", 4], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lois Lane"], ["description", "Batman: Year One"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.391569"], ["updated_at", "2020-04-21 06:15:49.391569"], ["user_id", 11], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Wonder Girl"], ["description", "Action Comics"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.394681"], ["updated_at", "2020-04-21 06:15:49.394681"], ["user_id", 13], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Raven"], ["description", "The Dark Knight Returns"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.397946"], ["updated_at", "2020-04-21 06:15:49.397946"], ["user_id", 2], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Raven"], ["description", "Doom Patrol"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.401330"], ["updated_at", "2020-04-21 06:15:49.401330"], ["user_id", 13], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Despero"], ["description", "Detective Comics"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.404462"], ["updated_at", "2020-04-21 06:15:49.404462"], ["user_id", 1], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.9ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Raven"], ["description", "Batman: The Long Halloween"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.410937"], ["updated_at", "2020-04-21 06:15:49.410937"], ["user_id", 9], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.6ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Nite Owl"], ["description", "JLA: Tower Of Babel"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.419760"], ["updated_at", "2020-04-21 06:15:49.419760"], ["user_id", 11], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Vixen"], ["description", "Detective Comics"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.426600"], ["updated_at", "2020-04-21 06:15:49.426600"], ["user_id", 12], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Heat Wave"], ["description", "Superman: Red Son"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.431156"], ["updated_at", "2020-04-21 06:15:49.431156"], ["user_id", 1], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lex Luthor"], ["description", "Grant Morrison's Animal Man"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.436088"], ["updated_at", "2020-04-21 06:15:49.436088"], ["user_id", 3], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Catwoman"], ["description", "Snowbirds Don't Fly"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.441856"], ["updated_at", "2020-04-21 06:15:49.441856"], ["user_id", 12], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Ted Kord"], ["description", "The Dark Knight Returns"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.446658"], ["updated_at", "2020-04-21 06:15:49.446658"], ["user_id", 14], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Weather Wizard"], ["description", "Doom Patrol"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.451321"], ["updated_at", "2020-04-21 06:15:49.451321"], ["user_id", 10], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Harley Quinn"], ["description", "All Star Superman"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.456261"], ["updated_at", "2020-04-21 06:15:49.456261"], ["user_id", 3], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.5ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Barbara Gordon"], ["description", "Arkham Asylum: A Serious House On Serious Earth"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.461033"], ["updated_at", "2020-04-21 06:15:49.461033"], ["user_id", 11], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Ras al Ghul"], ["description", "The Dark Knight Returns"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.466049"], ["updated_at", "2020-04-21 06:15:49.466049"], ["user_id", 6], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Doctor Mid-Nite"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.469971"], ["updated_at", "2020-04-21 06:15:49.469971"], ["user_id", 14], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Toy Man"], ["description", "The Sinestro Corps War"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.473623"], ["updated_at", "2020-04-21 06:15:49.473623"], ["user_id", 8], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Nightwing"], ["description", "JLA: Earth 2"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.477909"], ["updated_at", "2020-04-21 06:15:49.477909"], ["user_id", 11], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Starfire"], ["description", "Superman For All Seasons"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.481443"], ["updated_at", "2020-04-21 06:15:49.481443"], ["user_id", 13], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mongul"], ["description", "Superman: Red Son"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.484656"], ["updated_at", "2020-04-21 06:15:49.484656"], ["user_id", 14], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Solomon Grundy"], ["description", "For The Man Who Has Everything"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.487742"], ["updated_at", "2020-04-21 06:15:49.487742"], ["user_id", 2], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Starfire"], ["description", "The Sinestro Corps War"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.490667"], ["updated_at", "2020-04-21 06:15:49.490667"], ["user_id", 6], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mera"], ["description", "Whatever Happened To The Man Of Tomorrow?"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.493421"], ["updated_at", "2020-04-21 06:15:49.493421"], ["user_id", 7], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Red Tornado"], ["description", "For The Man Who Has Everything"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.496220"], ["updated_at", "2020-04-21 06:15:49.496220"], ["user_id", 11], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Black Canary"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.499542"], ["updated_at", "2020-04-21 06:15:49.499542"], ["user_id", 10], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Cyborg"], ["description", "JLA: Tower Of Babel"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.503075"], ["updated_at", "2020-04-21 06:15:49.503075"], ["user_id", 8], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Power Girl"], ["description", "Arkham Asylum: A Serious House On Serious Earth"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.506099"], ["updated_at", "2020-04-21 06:15:49.506099"], ["user_id", 5], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Deadshot"], ["description", "Detective Comics"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.509004"], ["updated_at", "2020-04-21 06:15:49.509004"], ["user_id", 6], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Al Pratt"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.511825"], ["updated_at", "2020-04-21 06:15:49.511825"], ["user_id", 7], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Silk Spectre"], ["description", "Snowbirds Don't Fly"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.514943"], ["updated_at", "2020-04-21 06:15:49.514943"], ["user_id", 6], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Captain Atom"], ["description", "Green Arrow: The Longbow Hunters"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.517826"], ["updated_at", "2020-04-21 06:15:49.517826"], ["user_id", 8], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Green Lantern"], ["description", "The New Frontier"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.521060"], ["updated_at", "2020-04-21 06:15:49.521060"], ["user_id", 6], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Clay Face"], ["description", "All Star Superman"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.524345"], ["updated_at", "2020-04-21 06:15:49.524345"], ["user_id", 9], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Raven"], ["description", "Batman: Year One"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.527544"], ["updated_at", "2020-04-21 06:15:49.527544"], ["user_id", 11], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.2ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lady Cain"], ["description", "Action Comics"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.530395"], ["updated_at", "2020-04-21 06:15:49.530395"], ["user_id", 1], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Silk Spectre"], ["description", "Grant Morrison's Animal Man"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.533362"], ["updated_at", "2020-04-21 06:15:49.533362"], ["user_id", 14], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Harley Quinn"], ["description", "Swamp Thing: The Anatomy Lesson"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.536414"], ["updated_at", "2020-04-21 06:15:49.536414"], ["user_id", 2], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Wonder Woman"], ["description", "Identity Crisis"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.539309"], ["updated_at", "2020-04-21 06:15:49.539309"], ["user_id", 1], ["manufacturer_id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Batgirl"], ["description", "Jack Kirby's New Gods"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.542525"], ["updated_at", "2020-04-21 06:15:49.542525"], ["user_id", 1], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dick Grayson"], ["description", "Green Arrow: The Longbow Hunters"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.545790"], ["updated_at", "2020-04-21 06:15:49.545790"], ["user_id", 13], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Sinestro"], ["description", "The Killing Joke"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.548765"], ["updated_at", "2020-04-21 06:15:49.548765"], ["user_id", 10], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Alfred Pennyworth"], ["description", "Jack Kirby's New Gods"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.551813"], ["updated_at", "2020-04-21 06:15:49.551813"], ["user_id", 3], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.2ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Wonder Girl"], ["description", "Grant Morrison's Animal Man"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.555184"], ["updated_at", "2020-04-21 06:15:49.555184"], ["user_id", 6], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Metallo"], ["description", "Green Arrow: The Longbow Hunters"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.558419"], ["updated_at", "2020-04-21 06:15:49.558419"], ["user_id", 7], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Steel"], ["description", "Grant Morrison's Animal Man"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.561811"], ["updated_at", "2020-04-21 06:15:49.561811"], ["user_id", 5], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.2ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Martain Manhunter"], ["description", "The Sinestro Corps War"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.565141"], ["updated_at", "2020-04-21 06:15:49.565141"], ["user_id", 9], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.2ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mera"], ["description", "JLA: Earth 2"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.568321"], ["updated_at", "2020-04-21 06:15:49.568321"], ["user_id", 3], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Nightwing"], ["description", "The Killing Joke"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.571348"], ["updated_at", "2020-04-21 06:15:49.571348"], ["user_id", 4], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.2ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Damian Wayne"], ["description", "The Coyote Gospel"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.574845"], ["updated_at", "2020-04-21 06:15:49.574845"], ["user_id", 6], ["manufacturer_id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.2ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Captain Comet"], ["description", "Kingdom Come"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.577870"], ["updated_at", "2020-04-21 06:15:49.577870"], ["user_id", 8], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Al Pratt"], ["description", "The Killing Joke"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.580965"], ["updated_at", "2020-04-21 06:15:49.580965"], ["user_id", 9], ["manufacturer_id", 2]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Catwoman"], ["description", "Superman: Red Son"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.584503"], ["updated_at", "2020-04-21 06:15:49.584503"], ["user_id", 7], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("name", "description", "date_posted", "created_at", "updated_at", "user_id", "manufacturer_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Hawkgirl"], ["description", "Batman: The Long Halloween"], ["date_posted", "2020-04-21"], ["created_at", "2020-04-21 06:15:49.587593"], ["updated_at", "2020-04-21 06:15:49.587593"], ["user_id", 10], ["manufacturer_id", 1]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
