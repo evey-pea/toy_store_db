@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_055237) do
+ActiveRecord::Schema.define(version: 2020_04_23_045314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "manufacturers", force: :cascade do |t|
     t.string "name"
@@ -34,6 +40,15 @@ ActiveRecord::Schema.define(version: 2020_04_21_055237) do
     t.index ["user_id"], name: "index_toys_on_user_id"
   end
 
+  create_table "toys_categories", force: :cascade do |t|
+    t.bigint "toy_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_toys_categories_on_category_id"
+    t.index ["toy_id"], name: "index_toys_categories_on_toy_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
@@ -43,4 +58,6 @@ ActiveRecord::Schema.define(version: 2020_04_21_055237) do
 
   add_foreign_key "toys", "manufacturers"
   add_foreign_key "toys", "users"
+  add_foreign_key "toys_categories", "categories"
+  add_foreign_key "toys_categories", "toys"
 end
